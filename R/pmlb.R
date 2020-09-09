@@ -9,18 +9,18 @@
 #' @param dataset_name The name of the data set to load from PMLB
 #' @param return_X_y Whether to return the data with the features and labels stored in separate data structures or a single structure (can be TRUE or FALSE, defaults to FALSE)
 #' @param local_cache_dir The directory on your local machine to store the data files in (defaults to NA, indicating cache will not be used)
-#' @seealso \code{\link{classification_summary}} and \code{\link{regression_summary}}
+#' @seealso \code{\link{summary_stats}}.
 #' @export
 #' @examples
 #'\dontrun{
 #'  # Features and labels in single data frame
-#'  iris <- fetch_data('iris')
-#'  iris
+#'  penguins <- fetch_data('penguins')
+#'  penguins
 #'
 #'  # Features and labels stored in separate data structures
-#'  iris <- fetch_data('iris', return_X_y=TRUE)
-#'  iris$x # data frame
-#'  iris$y # vector
+#'  penguins <- fetch_data('penguins', return_X_y=TRUE)
+#'  penguins$x # data frame
+#'  penguins$y # vector
 #'}
 fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA) {
     GITHUB_URL <- 'https://github.com/EpistasisLab/penn-ml-benchmarks/raw/master/datasets'
@@ -80,7 +80,7 @@ fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA) {
 
 
 
-#' pmlblite: R interface to the Penn Machine Learning Benchmarks data repository
+#' pmlb: R interface to the Penn Machine Learning Benchmarks data repository
 #'
 #' The \href{https://github.com/EpistasisLab/penn-ml-benchmarks}{PMLB} repository contains a curated collection of data sets for evaluating and
 #' comparing machine learning algorithms.
@@ -92,7 +92,7 @@ fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA) {
 #' include any of the PMLB data sets.  The data sets can be downloaded using the \code{\link{fetch_data}} function which
 #' is similar to the corresponding PMLB python function.
 #'
-#' See \code{\link{fetch_data}}, \code{\link{classification_summary}} and \code{\link{regression_summary}} for usage examples and further information.
+#' See \code{\link{fetch_data}}, \code{\link{summary_stats}} for usage examples and further information.
 #'
 #' If you use PMLB in a scientific publication, please consider citing the following paper:
 #'
@@ -107,5 +107,5 @@ fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA) {
 #' I have no affiliation with the authors of PMLB or the University of Pennsylvania.
 #'
 #' @docType package
-#' @name pmlblite
+#' @name pmlb
 NULL
