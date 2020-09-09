@@ -2,7 +2,7 @@
 % Please edit documentation in R/pmlb.R
 \name{fetch_data}
 \alias{fetch_data}
-\title{fetch_data Function}
+\title{fetch_data function}
 \usage{
 fetch_data(dataset_name, return_X_y = FALSE, local_cache_dir = NA)
 }

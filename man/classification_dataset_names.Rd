@@ -5,7 +5,7 @@
 \alias{classification_dataset_names}
 \title{Names of available classification datasets}
 \format{
-An object of class \code{character} of length 166.
+An object of class \code{character} of length 162.
 }
 \source{
 \url{https://github.com/EpistasisLab/penn-ml-benchmarks}

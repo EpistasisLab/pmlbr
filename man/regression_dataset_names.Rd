@@ -5,7 +5,7 @@
 \alias{regression_dataset_names}
 \title{Names of available regression datasets}
 \format{
-An object of class \code{character} of length 120.
+An object of class \code{character} of length 122.
 }
 \source{
 \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
