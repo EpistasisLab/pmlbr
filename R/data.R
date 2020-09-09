@@ -1,63 +1,39 @@
+#' Names of all available datasets
+#'
+#' A list of the names of available datasets
+#'
+#' @source \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
+"dataset_names"
 
-#' Names of available classification data sets
-#' 
-#' A list of the names of available classification data sets
-#' 
+#' Names of available classification datasets
+#'
+#' A list of the names of available classification datasets
+#'
 #' @source \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
 "classification_dataset_names"
 
-#' Summary statistics for the classification data sets
-#' 
-#' @format A data frame with 15 variables:
-#' \describe{
-#'   \item{MajorityClassSize:}{Number of instances in majority class of target variable}
-#'   \item{MinorityClassSize:}{Number of instances in minority class of target variable}
-#'   \item{NumberOfClasses:}{Number of classes in target variable}
-#'   \item{ImbalanceMetric:}{Imbalance metric, where zero means that the dataset is perfectly balanced and the higher the value, the more imbalanced the dataset}
-#'   \item{NumberOfFeatures:}{Total number of features (equal to number of columns)}
-#'   \item{NumberOfBinaryFeatures:}{Number of binary features}
-#'   \item{NumberOfIntegerFeatures:}{Number of integer features}
-#'   \item{NumberOfFloatFeatures:}{Number of float features}
-#'   \item{NumberOfInstances:}{Number of data observations (equal to number of rows)}
-#'   \item{NumberOfInstancesWithMissingValues:}{Number of instances with missing values (always 0)}
-#'   \item{NumberOfMissingValues:}{Number of missing values (always 0)}
-#'   \item{NumberOfNumericFeatures:}{Number of numeric features}
-#'   \item{NumberOfSymbolicFeatures:}{Number of symbolic features}
-#'   \item{name:}{Dataset name}
-#'   \item{status:}{All datasets are currently categorised as 'active'}
-#' }
-#' 
-#' @source \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
-"classification_summary"
-
-#' Names of available regression data sets
-#' 
-#' A list of the names of available regression data sets
-#' 
+#' Names of available regression datasets
+#'
+#' A list of the names of available regression datasets
+#'
 #' @source \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
 "regression_dataset_names"
 
-#' Summary statistics for the regression data sets
-#' 
-#' @format A data frame with 13 variables:
+#' Summary statistics for the all datasets
+#'
+#' @format A data frame with 10 variables:
 #' \describe{
-#'   \item{did:}{OpenML identifier (see \url{https://www.openml.org/)}}
-#'   \item{MajorityClassSize:}{Number of instances in majority class of target variable (always -1)}
-#'   \item{MaxNominalAttDistinctValues:}{Maximum number of distinct values among attributes of the nominal type}
-#'   \item{MinorityClassSize:}{Number of instances in minority class of target variable (always -1)}
-#'   \item{NumberOfClasses:}{Number of classes in target variable}
-#'   \item{NumberOfFeatures:}{Total number of features (equal to number of columns)}
-#'   \item{NumberOfInstances:}{Number of data observations (equal to number of rows)}
-#'   \item{NumberOfInstancesWithMissingValues:}{Number of instances with missing values (always 0)}
-#'   \item{NumberOfMissingValues:}{Number of missing values (always 0)}
-#'   \item{NumberOfNumericFeatures:}{Number of numeric features}
-#'   \item{NumberOfSymbolicFeatures:}{Number of symbolic features}
-#'   \item{name:}{Dataset name}
-#'   \item{status:}{All datasets are currently categorised as 'active'}
+#'   \item{dataset:}{Dataset name}
+#'   \item{n_instances:}{Number of data observations (equal to number of rows)}
+#'   \item{n_features:}{Total number of features (number of columns - 1)}
+#'   \item{n_binary_features:}{Number of binary features}
+#'   \item{n_categorical_features:}{Number of categorical features}
+#'   \item{n_continuous_features:}{Number of continuous features}
+#'   \item{n_classes:}{Number of classes in target variable}
+#'   \item{endpoint_type:}{Value type of endpoint/target (can be binary, categorical or continuous)}
+#'   \item{imbalance_metric:}{Imbalance metric, where zero means that the dataset is perfectly balanced and the higher the value, the more imbalanced the dataset}
+#'   \item{problem_type:}{Type of problem/task. Can be classification or regression.}
 #' }
 #'
-#' For further details, see \url{https://www.openml.org/}
-#' 
 #' @source \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
-"regression_summary"
-
+"summary_stats"

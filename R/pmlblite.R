@@ -16,7 +16,7 @@
 #'  # Features and labels in single data frame
 #'  iris <- fetch_data('iris')
 #'  iris
-#'  
+#'
 #'  # Features and labels stored in separate data structures
 #'  iris <- fetch_data('iris', return_X_y=TRUE)
 #'  iris$x # data frame
@@ -26,22 +26,17 @@ fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA) {
     GITHUB_URL <- 'https://github.com/EpistasisLab/penn-ml-benchmarks/raw/master/datasets'
     SUFFIX     <- '.tsv.gz'
 
-    if ( dataset_name %in% classification_dataset_names ) {
-        data_type <- 'classification'
-    } else if ( dataset_name %in% regression_dataset_names ) {
-        data_type <- 'regression'
-    } else {
-        stop("'dataset_name', ", dataset_name, " not found in PMLB.\n * Check spelling, capitalisation etc.", call.=FALSE)
+    if (!dataset_name %in% dataset_names){
+      stop("'dataset_name' ", dataset_name, " not found in PMLB.\n * Check spelling, capitalisation etc.", call.=FALSE)
     }
 
     if ( return_X_y != TRUE && return_X_y != FALSE ) {
-        stop("'return_X_y' must be TRUE or FALSE:\n * return_X_y is ", return_X_y, ".", call.=FALSE)
+      stop("'return_X_y' must be TRUE or FALSE:\n * return_X_y is ", return_X_y, ".", call.=FALSE)
     }
 
-    dataset_url <- paste0(GITHUB_URL,   '/', 
-                          data_type,    '/',
+    dataset_url <- paste0(GITHUB_URL,   '/',
                           dataset_name, '/',
-                          dataset_name, 
+                          dataset_name,
                           SUFFIX)
 
     if ( is.na(local_cache_dir) ) {
@@ -57,7 +52,7 @@ fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA) {
       }
 
       dataset_path <- file.path(local_cache_dir, paste0(dataset_name, SUFFIX))
-      
+
       # read file from cache
       if ( file.exists(dataset_path) ) {
         dataset <- utils::read.csv( dataset_path,
@@ -78,32 +73,32 @@ fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA) {
       x <- dataset[, names(dataset) != "target"]
       y <- dataset$target
       dataset <- list(x=x, y=y)
-    } 
+    }
 
     return(dataset)
 }
 
 
 
-#' pmlblite: R interface to the Penn Machine Learning Benchmarks data repository 
+#' pmlblite: R interface to the Penn Machine Learning Benchmarks data repository
 #'
-#' The \href{https://github.com/EpistasisLab/penn-ml-benchmarks}{PMLB} repository contains a curated collection of data sets for evaluating and 
-#' comparing machine learning algorithms. 
-#' These data sets cover a range of applications, and include binary/multi-class classification problems and regression problems, 
+#' The \href{https://github.com/EpistasisLab/penn-ml-benchmarks}{PMLB} repository contains a curated collection of data sets for evaluating and
+#' comparing machine learning algorithms.
+#' These data sets cover a range of applications, and include binary/multi-class classification problems and regression problems,
 #' as well as combinations of categorical, ordinal, and continuous features.  There are approximately 290 data sets included in the PMLB repository
 #' and there are no missing values in these data sets.
-#' 
+#'
 #' This R library includes summaries of the classification and regression data sets but does NOT
 #' include any of the PMLB data sets.  The data sets can be downloaded using the \code{\link{fetch_data}} function which
-#' is similar to the corresponding PMLB python function.  
-#' 
+#' is similar to the corresponding PMLB python function.
+#'
 #' See \code{\link{fetch_data}}, \code{\link{classification_summary}} and \code{\link{regression_summary}} for usage examples and further information.
 #'
 #' If you use PMLB in a scientific publication, please consider citing the following paper:
 #'
 #' Randal S. Olson, William La Cava, Patryk Orzechowski, Ryan J. Urbanowicz, and Jason H. Moore (2017).
 #'
-#' PMLB: a large benchmark suite for machine learning evaluation and comparison 
+#' PMLB: a large benchmark suite for machine learning evaluation and comparison
 #'
 #' https://biodatamining.biomedcentral.com/articles/10.1186/s13040-017-0154-4
 #'

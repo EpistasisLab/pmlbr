@@ -3,8 +3,10 @@
 \docType{data}
 \name{classification_dataset_names}
 \alias{classification_dataset_names}
-\title{Names of available classification data sets}
-\format{An object of class \code{character} of length 166.}
+\title{Names of available classification datasets}
+\format{
+An object of class \code{character} of length 166.
+}
 \source{
 \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
 }
@@ -12,6 +14,6 @@
 classification_dataset_names
 }
 \description{
-A list of the names of available classification data sets
+A list of the names of available classification datasets
 }
 \keyword{datasets}

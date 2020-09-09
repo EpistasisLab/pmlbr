@@ -3,8 +3,10 @@
 \docType{data}
 \name{regression_dataset_names}
 \alias{regression_dataset_names}
-\title{Names of available regression data sets}
-\format{An object of class \code{character} of length 120.}
+\title{Names of available regression datasets}
+\format{
+An object of class \code{character} of length 120.
+}
 \source{
 \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
 }
@@ -12,6 +14,6 @@
 regression_dataset_names
 }
 \description{
-A list of the names of available regression data sets
+A list of the names of available regression datasets
 }
 \keyword{datasets}

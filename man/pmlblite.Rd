@@ -3,12 +3,11 @@
 \docType{package}
 \name{pmlblite}
 \alias{pmlblite}
-\alias{pmlblite-package}
 \title{pmlblite: R interface to the Penn Machine Learning Benchmarks data repository}
 \description{
-The \href{https://github.com/EpistasisLab/penn-ml-benchmarks}{PMLB} repository contains a curated collection of data sets for evaluating and 
-comparing machine learning algorithms. 
-These data sets cover a range of applications, and include binary/multi-class classification problems and regression problems, 
+The \href{https://github.com/EpistasisLab/penn-ml-benchmarks}{PMLB} repository contains a curated collection of data sets for evaluating and
+comparing machine learning algorithms.
+These data sets cover a range of applications, and include binary/multi-class classification problems and regression problems,
 as well as combinations of categorical, ordinal, and continuous features.  There are approximately 290 data sets included in the PMLB repository
 and there are no missing values in these data sets.
 }

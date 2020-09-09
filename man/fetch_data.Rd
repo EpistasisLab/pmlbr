@@ -22,7 +22,7 @@ You must be connected to the internet if you are fetching a data set that is not
  # Features and labels in single data frame
  iris <- fetch_data('iris')
  iris
- 
+
  # Features and labels stored in separate data structures
  iris <- fetch_data('iris', return_X_y=TRUE)
  iris$x # data frame
