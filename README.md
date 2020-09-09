@@ -8,7 +8,7 @@
 %>%= 3.1.0](https://img.shields.io/badge/R->%3D3.1.0-blue.svg?style=flat)
 ![Dependencies
 ](https://img.shields.io/badge/dependencies-none-brightgreen.svg?style=flat)
-
+[![R build status](https://github.com/EpistasisLab/pmlb/workflows/R-CMD-check/badge.svg)](https://github.com/EpistasisLab/pmlb/actions)
 
 pmlb is an R interface to the [Penn Machine Learning Benchmarks](https://github.com/EpistasisLab/penn-ml-benchmarks) (PMLB) data repository 
 
