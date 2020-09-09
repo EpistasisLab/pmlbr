@@ -1,125 +1,205 @@
+*pmlb*: an introduction
+================
 
+![Lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat)
+![R %\>%=
+3.1.0](https://img.shields.io/badge/R-%3E%3D3.1.0-blue.svg?style=flat)
+![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg?style=flat)
+[![R build
+status](https://github.com/EpistasisLab/pmlb/workflows/R-CMD-check/badge.svg)](https://github.com/EpistasisLab/pmlb/actions)
 
-# pmlb
+pmlb is an R interface to the [Penn Machine Learning
+Benchmarks](https://epistasislab.github.io/penn-ml-benchmarks/) (PMLB)
+data repository, a large collection of curated benchmark datasets for
+evaluating and comparing supervised machine learning algorithms. These
+datasets cover a broad range of applications including
+binary/multi-class classification and regression problems as well as
+combinations of categorical, ordinal, and continuous features.
 
-![Lifecycle
-](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat)
-![R 
-%>%= 3.1.0](https://img.shields.io/badge/R->%3D3.1.0-blue.svg?style=flat)
-![Dependencies
-](https://img.shields.io/badge/dependencies-none-brightgreen.svg?style=flat)
-[![R build status](https://github.com/EpistasisLab/pmlb/workflows/R-CMD-check/badge.svg)](https://github.com/EpistasisLab/pmlb/actions)
+If you like pmlb, give it a star, or fork it and contribute\!
 
-pmlb is an R interface to the [Penn Machine Learning Benchmarks](https://github.com/EpistasisLab/penn-ml-benchmarks) (PMLB) data repository 
+## Install
 
-If you like pmlb, give it a star, or fork it and contribute!
+This package works for any recent version of R.
 
+``` r
+# install.packages('remotes') # uncomment to install remotes
+library(remotes)
+remotes::install_github("EpistasisLab/pmlb")
+```
 
 ## Usage
 
-<img src="man/figures/pmlblite_usage_animated.gif" align="center" />
+The core function of this package is `fetch_data` that allows us to
+download data from the PMLB repository. For example:
 
-Check available data sets and download data from the PMLB repository:
-
-```r
+``` r
 library(pmlb)
 
-# Data set names
-classification_dataset_names
-regression_dataset_names
-
-# Data set summaries
-classification_summary
-regression_summary
-
-# Download features and labels for iris data set in single data frame
-iris <- fetch_data('iris')
-iris
-
-# Download features and labels for iris data set in separate data structures
-iris <- fetch_data('iris', return_X_y=TRUE)
-iris$x # data frame
-iris$y # vector
+# Download features and labels for penguins dataset in single data frame
+penguins <- fetch_data('penguins')
+str(penguins)
 ```
 
+    ## 'data.frame':    344 obs. of  8 variables:
+    ##  $ island           : int  2 2 2 2 2 2 2 2 2 2 ...
+    ##  $ bill_length_mm   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+    ##  $ bill_depth_mm    : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+    ##  $ flipper_length_mm: int  181 186 195 NA 193 190 181 195 193 190 ...
+    ##  $ body_mass_g      : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+    ##  $ sex              : int  1 0 0 NA 0 1 0 1 NA NA ...
+    ##  $ year             : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...
+    ##  $ target           : int  0 0 0 0 0 0 0 0 0 0 ...
 
-## Installation
-
-Should work with any recent version of R.
-
-```r
-install.packages("devtools") # Install devtools package if necessary
-library(devtools)
-devtools::install_github("EpistasisLab/pmlb")
+``` r
+# Download features and labels for penguins dataset in separate data structures
+penguins <- fetch_data('penguins', return_X_y=TRUE)
+head(penguins$x) # data frame
 ```
 
+    ##   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex year
+    ## 1      2           39.1          18.7               181        3750   1 2007
+    ## 2      2           39.5          17.4               186        3800   0 2007
+    ## 3      2           40.3          18.0               195        3250   0 2007
+    ## 4      2             NA            NA                NA          NA  NA 2007
+    ## 5      2           36.7          19.3               193        3450   0 2007
+    ## 6      2           39.3          20.6               190        3650   1 2007
 
-## Details
+``` r
+head(penguins$y) # vector
+```
 
-The PMLB repository contains a curated collection of data sets for evaluating and comparing machine learning algorithms. 
-These data sets cover a range of applications, and include binary/multi-class classification problems and regression problems, 
-as well as combinations of categorical, ordinal, and continuous features.  There are approximately 290 data sets included in the PMLB repository
-and there are no missing values in these data sets.
+    ## [1] 0 0 0 0 0 0
 
-All binary and multiclass classification data sets are in the `classification` category, and all regression data sets are in the `regression` category.
+Let’s check other available datasets and their summary statistics:
 
-### Data set format
+``` r
+# Dataset names
+head(classification_dataset_names, 9)
+```
+
+    ## [1] "adult"                  "agaricus_lepiota"       "allbp"                 
+    ## [4] "allhyper"               "allhypo"                "allrep"                
+    ## [7] "analcatdata_aids"       "analcatdata_asbestos"   "analcatdata_authorship"
+
+``` r
+head(regression_dataset_names, 9)
+```
+
+    ## [1] "1027_ESL"             "1028_SWD"             "1029_LEV"            
+    ## [4] "1030_ERA"             "1089_USCrime"         "1096_FacultySalaries"
+    ## [7] "1191_BNG_pbc"         "1193_BNG_lowbwt"      "1196_BNG_pharynx"
+
+``` r
+# Dataset summaries
+head(summary_stats)
+```
+
+    ##                dataset n_instances n_features n_binary_features
+    ## 1             1027_ESL         488          4                 0
+    ## 2             1028_SWD        1000         10                 0
+    ## 3             1029_LEV        1000          4                 0
+    ## 4             1030_ERA        1000          4                 0
+    ## 5         1089_USCrime          47         13                 0
+    ## 6 1096_FacultySalaries          50          4                 0
+    ##   n_categorical_features n_continuous_features endpoint_type n_classes
+    ## 1                      0                     4    continuous         9
+    ## 2                      0                    10    continuous         4
+    ## 3                      0                     4    continuous         5
+    ## 4                      0                     4    continuous         9
+    ## 5                      0                    13    continuous        42
+    ## 6                      0                     4    continuous        39
+    ##     imbalance       task
+    ## 1 0.099363200 regression
+    ## 2 0.108290667 regression
+    ## 3 0.111245000 regression
+    ## 4 0.031251250 regression
+    ## 5 0.002970111 regression
+    ## 6 0.004063158 regression
+
+Selecting a subset of datasets that satisfy certain conditions is
+straight forward with `dplyr`. For example, if we need datasets with
+fewer than 100 observations for a classification task:
+
+``` r
+library(dplyr)
+summary_stats %>% 
+  filter(n_instances < 100, task == 'classification') %>% 
+  pull(dataset)
+```
+
+    ##  [1] "analcatdata_aids"           "analcatdata_asbestos"      
+    ##  [3] "analcatdata_bankruptcy"     "analcatdata_cyyoung8092"   
+    ##  [5] "analcatdata_cyyoung9302"    "analcatdata_fraud"         
+    ##  [7] "analcatdata_happiness"      "analcatdata_japansolvent"  
+    ##  [9] "confidence"                 "labor"                     
+    ## [11] "lupus"                      "parity5"                   
+    ## [13] "postoperative_patient_data"
+
+### Dataset format
 
 All data sets are stored in a common format:
 
-* First row is the column names
-* Each following row corresponds to an individual observation
-* The target column is named `target`
-* All columns are tab (`\t`) separated
-* All files are compressed with `gzip` to conserve space
+  - First row is the column names
+  - Each following row corresponds to an individual observation
+  - The target column is named `target`
+  - All columns are tab (`\t`) separated
+  - All files are compressed with `gzip` to conserve space
 
-
-The python interface to the [PMLB](https://github.com/EpistasisLab/penn-ml-benchmarks) repository is great but can't be used from the R language.
-
-This R library includes summaries of the classification and regression data sets but does **not**
-include any of the PMLB data sets.  The data sets can be downloaded using the `fetch_data` function which
-is similar to the corresponding PMLB python function.  
+This R library includes summaries of the classification and regression
+data sets but does **not** store any of the PMLB data sets. The data
+sets can be downloaded using the `fetch_data` function which is similar
+to the corresponding PMLB python function.
 
 Further info:
-```r
-?fetch_data
-?regression_summary
-?classification_summary
-```
 
+``` r
+?fetch_data
+?summary_stats
+```
 
 ### Citing
 
-If you use PMLB in a scientific publication, please consider citing the following paper:
+If you use PMLB in a scientific publication, please consider citing the
+following paper:
 
-Randal S. Olson, William La Cava, Patryk Orzechowski, Ryan J. Urbanowicz, and Jason H. Moore (2017).
-[PMLB: a large benchmark suite for machine learning evaluation and comparison](https://biodatamining.biomedcentral.com/articles/10.1186/s13040-017-0154-4).
+Randal S. Olson, William La Cava, Patryk Orzechowski, Ryan J.
+Urbanowicz, and Jason H. Moore (2017). [PMLB: a large benchmark suite
+for machine learning evaluation and
+comparison](https://biodatamining.biomedcentral.com/articles/10.1186/s13040-017-0154-4).
 BioData Mining 10, page 36.
-
 
 ## Roadmap
 
-* Add tests
-* Submit library to CRAN
-
+  - Add tests
+  - Submit library to CRAN
 
 ## Contributing
 
-Pull requests are welcome.  For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
 
 Integration of other data repositories are particularly welcome.
 
-
 ## Alternatives
 
-* [Penn Machine Learning Benchmarks](https://github.com/EpistasisLab/penn-ml-benchmarks)
-* [OpenML](https://www.openml.org/search?type=data)
-    Approximately 2,500 datasets - available for download using [R module](https://github.com/openml/openml-r)
-* [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php)
-* [mlbench: Machine Learning Benchmark Problems](https://cran.r-project.org/package=mlbench)
-* [Rdatasets: An archive of datasets distributed with R](https://vincentarelbundock.github.io/Rdatasets/)
-* [datasets.load: Visual interface for loading datasets in RStudio from all installed (unloaded) packages](https://cran.r-project.org/package=datasets.load)
-* [stackoverflow: How do I get a list of built-in data sets in R?](https://stackoverflow.com/questions/33797666/how-do-i-get-a-list-of-built-in-data-sets-in-r)
+  - [Penn Machine Learning
+    Benchmarks](https://github.com/EpistasisLab/penn-ml-benchmarks)
+  - [OpenML](https://www.openml.org/search?type=data) Approximately
+    2,500 datasets - available for download using [R
+    module](https://github.com/openml/openml-r)
+  - [UC Irvine Machine Learning
+    Repository](https://archive.ics.uci.edu/ml/index.php)
+  - [mlbench: Machine Learning Benchmark
+    Problems](https://cran.r-project.org/package=mlbench)
+  - [Rdatasets: An archive of datasets distributed with
+    R](https://vincentarelbundock.github.io/Rdatasets/)
+  - [datasets.load: Visual interface for loading datasets in RStudio
+    from all installed (unloaded)
+    packages](https://cran.r-project.org/package=datasets.load)
+  - [stackoverflow: How do I get a list of built-in data sets in
+    R?](https://stackoverflow.com/questions/33797666/how-do-i-get-a-list-of-built-in-data-sets-in-r)
 
 ## License
+
 [GPL-2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)

@@ -1,9 +1,10 @@
-summary_stats <- read.csv('https://raw.githubusercontent.com/EpistasisLab/penn-ml-benchmarks/010f4224694b0362b858be16a81055f7e401047d/datasets/all_summary_stats.csv')
+links_to_stats <- 'https://github.com/EpistasisLab/penn-ml-benchmarks/raw/master/pmlb/all_summary_stats.tsv'
+summary_stats <- read.csv(links_to_stats, sep = '\t')
 colnames(summary_stats) <- tolower(gsub('X.', 'n_', colnames(summary_stats)))
 dataset_names <- summary_stats$dataset
 
-regression_dataset_names <- subset(summary_stats, problem_type == 'regression')$dataset
-classification_dataset_names <- subset(summary_stats, problem_type == 'classification')$dataset
+regression_dataset_names <- sort(subset(summary_stats, task == 'regression')$dataset)
+classification_dataset_names <- sort(subset(summary_stats, task == 'classification')$dataset)
 
 usethis::use_data(summary_stats, dataset_names,
                   classification_dataset_names,
