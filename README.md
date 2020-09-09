@@ -1,6 +1,6 @@
 
 
-# pmlblite
+# pmlb
 
 ![Lifecycle
 ](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat)
@@ -10,9 +10,9 @@
 ](https://img.shields.io/badge/dependencies-none-brightgreen.svg?style=flat)
 
 
-pmlblite is an R interface to the [Penn Machine Learning Benchmarks](https://github.com/EpistasisLab/penn-ml-benchmarks) (PMLB) data repository 
+pmlb is an R interface to the [Penn Machine Learning Benchmarks](https://github.com/EpistasisLab/penn-ml-benchmarks) (PMLB) data repository 
 
-If you like pmlblite, give it a star, or fork it and contribute!
+If you like pmlb, give it a star, or fork it and contribute!
 
 
 ## Usage
@@ -22,7 +22,7 @@ If you like pmlblite, give it a star, or fork it and contribute!
 Check available data sets and download data from the PMLB repository:
 
 ```r
-library(pmlblite)
+library(pmlb)
 
 # Data set names
 classification_dataset_names
@@ -50,7 +50,7 @@ Should work with any recent version of R.
 ```r
 install.packages("devtools") # Install devtools package if necessary
 library(devtools)
-devtools::install_github("makeyourownmaker/pmlblite")
+devtools::install_github("EpistasisLab/pmlb")
 ```
 
 
@@ -95,8 +95,6 @@ If you use PMLB in a scientific publication, please consider citing the followin
 Randal S. Olson, William La Cava, Patryk Orzechowski, Ryan J. Urbanowicz, and Jason H. Moore (2017).
 [PMLB: a large benchmark suite for machine learning evaluation and comparison](https://biodatamining.biomedcentral.com/articles/10.1186/s13040-017-0154-4).
 BioData Mining 10, page 36.
-
-I have no affiliation with the authors of PMLB or the University of Pennsylvania.
 
 
 ## Roadmap
