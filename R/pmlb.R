@@ -1,14 +1,14 @@
-
-
-
-#' fetch_data Function
+#' fetch_data function
 #'
 #' Download a data set from the PMLB repository, (optionally) store it locally, and return the data set.
 #' You must be connected to the internet if you are fetching a data set that is not cached locally.
 #'
 #' @param dataset_name The name of the data set to load from PMLB
-#' @param return_X_y Whether to return the data with the features and labels stored in separate data structures or a single structure (can be TRUE or FALSE, defaults to FALSE)
-#' @param local_cache_dir The directory on your local machine to store the data files in (defaults to NA, indicating cache will not be used)
+#' @param return_X_y Boolean. Whether to return the data with the features and labels stored
+#' in separate data structures or a single structure (can be TRUE or FALSE, defaults to FALSE)
+#' @param local_cache_dir The directory on your local machine to store the data files in
+#' (defaults to NA, indicating cache will not be used)
+#' @param dropna Boolean. Whether rows with NAs should be automatically dropped. Default to TRUE.
 #' @seealso \code{\link{summary_stats}}.
 #' @export
 #' @examples
@@ -22,7 +22,7 @@
 #'  penguins$x # data frame
 #'  penguins$y # vector
 #'}
-fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA) {
+fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA, dropna=TRUE) {
     GITHUB_URL <- 'https://github.com/EpistasisLab/penn-ml-benchmarks/raw/master/datasets'
     SUFFIX     <- '.tsv.gz'
 
@@ -75,9 +75,10 @@ fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA) {
       dataset <- list(x=x, y=y)
     }
 
+    if (dropna)
+      dataset <- stats::na.omit(dataset)
     return(dataset)
 }
-
 
 
 #' pmlb: R interface to the Penn Machine Learning Benchmarks data repository

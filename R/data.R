@@ -31,8 +31,8 @@
 #'   \item{n_continuous_features:}{Number of continuous features}
 #'   \item{n_classes:}{Number of classes in target variable}
 #'   \item{endpoint_type:}{Value type of endpoint/target (can be binary, categorical or continuous)}
-#'   \item{imbalance_metric:}{Imbalance metric, where zero means that the dataset is perfectly balanced and the higher the value, the more imbalanced the dataset}
-#'   \item{problem_type:}{Type of problem/task. Can be classification or regression.}
+#'   \item{imbalance:}{Imbalance metric, where zero means that the dataset is perfectly balanced and the higher the value, the more imbalanced the dataset}
+#'   \item{task:}{Type of problem/task. Can be classification or regression.}
 #' }
 #'
 #' @source \url{https://github.com/EpistasisLab/penn-ml-benchmarks}

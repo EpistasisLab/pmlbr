@@ -4,14 +4,23 @@
 \alias{fetch_data}
 \title{fetch_data function}
 \usage{
-fetch_data(dataset_name, return_X_y = FALSE, local_cache_dir = NA)
+fetch_data(
+  dataset_name,
+  return_X_y = FALSE,
+  local_cache_dir = NA,
+  dropna = TRUE
+)
 }
 \arguments{
 \item{dataset_name}{The name of the data set to load from PMLB}
 
-\item{return_X_y}{Whether to return the data with the features and labels stored in separate data structures or a single structure (can be TRUE or FALSE, defaults to FALSE)}
+\item{return_X_y}{Boolean. Whether to return the data with the features and labels stored
+in separate data structures or a single structure (can be TRUE or FALSE, defaults to FALSE)}
 
-\item{local_cache_dir}{The directory on your local machine to store the data files in (defaults to NA, indicating cache will not be used)}
+\item{local_cache_dir}{The directory on your local machine to store the data files in
+(defaults to NA, indicating cache will not be used)}
+
+\item{dropna}{Boolean. Whether rows with NAs should be automatically dropped. Default to TRUE.}
 }
 \description{
 Download a data set from the PMLB repository, (optionally) store it locally, and return the data set.

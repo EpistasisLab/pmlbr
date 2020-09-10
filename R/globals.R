@@ -1,1 +1,1 @@
-utils::globalVariables(c('dataset_names'))
+utils::globalVariables(c('dataset_names', 'summary_stats'))
