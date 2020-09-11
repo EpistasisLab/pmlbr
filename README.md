@@ -1,4 +1,4 @@
-*pmlb*: an introduction
+*pmlbr*: an introduction
 ================
 
 ![Lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat)
@@ -6,9 +6,9 @@
 3.1.0](https://img.shields.io/badge/R-%3E%3D3.1.0-blue.svg?style=flat)
 ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg?style=flat)
 [![R build
-status](https://github.com/EpistasisLab/pmlb/workflows/R-CMD-check/badge.svg)](https://github.com/EpistasisLab/pmlb/actions)
+status](https://github.com/EpistasisLab/pmlbr/workflows/R-CMD-check/badge.svg)](https://github.com/EpistasisLab/pmlbr/actions)
 
-pmlb is an R interface to the [Penn Machine Learning
+**pmlbr** is an R interface to the [Penn Machine Learning
 Benchmarks](https://epistasislab.github.io/penn-ml-benchmarks/) (PMLB)
 data repository, a large collection of curated benchmark datasets for
 evaluating and comparing supervised machine learning algorithms. These
@@ -16,7 +16,12 @@ datasets cover a broad range of applications including
 binary/multi-class classification and regression problems as well as
 combinations of categorical, ordinal, and continuous features.
 
-If you like pmlb, give it a star, or fork it and contribute\!
+This repository is originally forked from
+[makeyourownmaker/pmlblite](https://github.com/makeyourownmaker/pmlblite).
+We thank the **pmlblite**’s author for releasing the source code under
+the [GPL-2
+license](https://github.com/makeyourownmaker/pmlblite/blob/be763f7011b21e71e3eaf6d3ca6b794d405507cd/LICENSE)
+so that others could reuse the software.
 
 ## Install
 
@@ -25,7 +30,7 @@ This package works for any recent version of R.
 ``` r
 # install.packages('remotes') # uncomment to install remotes
 library(remotes)
-remotes::install_github("EpistasisLab/pmlb")
+remotes::install_github("EpistasisLab/pmlbr")
 ```
 
 ## Usage
@@ -34,22 +39,24 @@ The core function of this package is `fetch_data` that allows us to
 download data from the PMLB repository. For example:
 
 ``` r
-library(pmlb)
+library(pmlbr)
 
 # Download features and labels for penguins dataset in single data frame
 penguins <- fetch_data('penguins')
 str(penguins)
 ```
 
-    ## 'data.frame':    344 obs. of  8 variables:
+    ## 'data.frame':    333 obs. of  8 variables:
     ##  $ island           : int  2 2 2 2 2 2 2 2 2 2 ...
-    ##  $ bill_length_mm   : num  39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
-    ##  $ bill_depth_mm    : num  18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
-    ##  $ flipper_length_mm: int  181 186 195 NA 193 190 181 195 193 190 ...
-    ##  $ body_mass_g      : int  3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
-    ##  $ sex              : int  1 0 0 NA 0 1 0 1 NA NA ...
+    ##  $ bill_length_mm   : num  39.1 39.5 40.3 36.7 39.3 38.9 39.2 41.1 38.6 34.6 ...
+    ##  $ bill_depth_mm    : num  18.7 17.4 18 19.3 20.6 17.8 19.6 17.6 21.2 21.1 ...
+    ##  $ flipper_length_mm: int  181 186 195 193 190 181 195 182 191 198 ...
+    ##  $ body_mass_g      : int  3750 3800 3250 3450 3650 3625 4675 3200 3800 4400 ...
+    ##  $ sex              : int  1 0 0 0 1 0 1 0 1 1 ...
     ##  $ year             : int  2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...
     ##  $ target           : int  0 0 0 0 0 0 0 0 0 0 ...
+    ##  - attr(*, "na.action")= 'omit' Named int [1:11] 4 9 10 11 12 48 179 219 257 269 ...
+    ##   ..- attr(*, "names")= chr [1:11] "4" "9" "10" "11" ...
 
 ``` r
 # Download features and labels for penguins dataset in separate data structures

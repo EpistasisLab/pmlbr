@@ -1,5 +1,5 @@
 ---
-title: "*pmlb*: an introduction"
+title: "*pmlbr*: an introduction"
 output: rmarkdown::github_document
 ---
 
@@ -17,10 +17,11 @@ knitr::opts_chunk$set(
 ](https://img.shields.io/badge/dependencies-none-brightgreen.svg?style=flat)
 [![R build status](https://github.com/EpistasisLab/pmlbr/workflows/R-CMD-check/badge.svg)](https://github.com/EpistasisLab/pmlbr/actions)
 
-pmlbr is an R interface to the [Penn Machine Learning Benchmarks](https://epistasislab.github.io/penn-ml-benchmarks/) (PMLB) data repository, a large collection of curated benchmark datasets for evaluating and comparing supervised machine learning algorithms.
+**pmlbr** is an R interface to the [Penn Machine Learning Benchmarks](https://epistasislab.github.io/penn-ml-benchmarks/) (PMLB) data repository, a large collection of curated benchmark datasets for evaluating and comparing supervised machine learning algorithms.
 These datasets cover a broad range of applications including binary/multi-class classification and regression problems as well as combinations of categorical, ordinal, and continuous features.
 
-If you like pmlbr, give it a star, or fork it and contribute!
+This repository is originally forked from [makeyourownmaker/pmlblite](https://github.com/makeyourownmaker/pmlblite).
+We thank the **pmlblite**'s author for releasing the source code under the [GPL-2 license](https://github.com/makeyourownmaker/pmlblite/blob/be763f7011b21e71e3eaf6d3ca6b794d405507cd/LICENSE) so that others could reuse the software.
 
 ## Install
 
