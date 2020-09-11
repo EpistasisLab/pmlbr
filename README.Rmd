@@ -15,12 +15,12 @@ knitr::opts_chunk$set(
 %>%= 3.1.0](https://img.shields.io/badge/R->%3D3.1.0-blue.svg?style=flat)
 ![Dependencies
 ](https://img.shields.io/badge/dependencies-none-brightgreen.svg?style=flat)
-[![R build status](https://github.com/EpistasisLab/pmlb/workflows/R-CMD-check/badge.svg)](https://github.com/EpistasisLab/pmlb/actions)
+[![R build status](https://github.com/EpistasisLab/pmlbr/workflows/R-CMD-check/badge.svg)](https://github.com/EpistasisLab/pmlbr/actions)
 
-pmlb is an R interface to the [Penn Machine Learning Benchmarks](https://epistasislab.github.io/penn-ml-benchmarks/) (PMLB) data repository, a large collection of curated benchmark datasets for evaluating and comparing supervised machine learning algorithms.
+pmlbr is an R interface to the [Penn Machine Learning Benchmarks](https://epistasislab.github.io/penn-ml-benchmarks/) (PMLB) data repository, a large collection of curated benchmark datasets for evaluating and comparing supervised machine learning algorithms.
 These datasets cover a broad range of applications including binary/multi-class classification and regression problems as well as combinations of categorical, ordinal, and continuous features.
 
-If you like pmlb, give it a star, or fork it and contribute!
+If you like pmlbr, give it a star, or fork it and contribute!
 
 ## Install
 
@@ -29,7 +29,7 @@ This package works for any recent version of R.
 ```{r, eval=FALSE}
 # install.packages('remotes') # uncomment to install remotes
 library(remotes)
-remotes::install_github("EpistasisLab/pmlb")
+remotes::install_github("EpistasisLab/pmlbr")
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ remotes::install_github("EpistasisLab/pmlb")
 The core function of this package is `fetch_data` that allows us to download data from the PMLB repository.
 For example:
 ``` {r}
-library(pmlb)
+library(pmlbr)
 
 # Download features and labels for penguins dataset in single data frame
 penguins <- fetch_data('penguins')
