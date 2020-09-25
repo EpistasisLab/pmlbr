@@ -12,7 +12,6 @@
 #' @seealso \code{\link{summary_stats}}.
 #' @export
 #' @examples
-#'\dontrun{
 #'  # Features and labels in single data frame
 #'  penguins <- fetch_data('penguins')
 #'  penguins
@@ -21,7 +20,7 @@
 #'  penguins <- fetch_data('penguins', return_X_y=TRUE)
 #'  penguins$x # data frame
 #'  penguins$y # vector
-#'}
+#'
 fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA, dropna=TRUE) {
     GITHUB_URL <- 'https://github.com/EpistasisLab/penn-ml-benchmarks/raw/master/datasets'
     SUFFIX     <- '.tsv.gz'

@@ -27,7 +27,6 @@ Download a data set from the PMLB repository, (optionally) store it locally, and
 You must be connected to the internet if you are fetching a data set that is not cached locally.
 }
 \examples{
-\dontrun{
  # Features and labels in single data frame
  penguins <- fetch_data('penguins')
  penguins
@@ -36,7 +35,7 @@ You must be connected to the internet if you are fetching a data set that is not
  penguins <- fetch_data('penguins', return_X_y=TRUE)
  penguins$x # data frame
  penguins$y # vector
-}
+
 }
 \seealso{
 \code{\link{summary_stats}}.

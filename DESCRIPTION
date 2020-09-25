@@ -1,7 +1,7 @@
 Package: pmlbr
 Title: Interface to the Penn Machine Learning Benchmarks Data Repository
 Description: Check available classification and regression data sets from the PMLB repository and download them.
-    The PMLB repository contains a curated collection of data sets for evaluating and comparing machine learning algorithms.
+    The PMLB repository (<https://github.com/EpistasisLab/pmlbr>) contains a curated collection of data sets for evaluating and comparing machine learning algorithms.
     These data sets cover a range of applications, and include binary/multi-class classification problems and 
     regression problems, as well as combinations of categorical, ordinal, and continuous features.
     There are currently over 150 datasets included in the PMLB repository.
