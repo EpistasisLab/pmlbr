@@ -17,7 +17,7 @@ Imports:
     utils,
     FNN,
     stats
-License: GPL-2 | file LICENSE
+License: GPL-2 + file LICENSE
 URL: https://github.com/EpistasisLab/pmlbr
 Encoding: UTF-8
 LazyData: true
