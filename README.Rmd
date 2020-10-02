@@ -27,9 +27,9 @@ We thank the **pmlblite**'s author for releasing the source code under the [GPL-
 
 This package works for any recent version of R.
 
-You can install the released version of **treeheatr** from CRAN with:
+You can install the released version of **pmlbr** from CRAN with:
 ```{r, eval=FALSE}
-install.packages('treeheatr')
+install.packages('pmlbr')
 ```
 
 Or the development version from GitHub with remotes:
