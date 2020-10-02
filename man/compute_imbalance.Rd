@@ -2,8 +2,7 @@
 % Please edit documentation in R/nearest.R
 \name{compute_imbalance}
 \alias{compute_imbalance}
-\title{------------------------------------------------------------------------------------
-Computes imbalance value for a given dataset.}
+\title{Computes imbalance value for a given dataset.}
 \usage{
 compute_imbalance(target_col)
 }
@@ -16,6 +15,5 @@ where zero means that the dataset is perfectly balanced
 and the higher the value, the more imbalanced the dataset.
 }
 \description{
-------------------------------------------------------------------------------------
 Computes imbalance value for a given dataset.
 }

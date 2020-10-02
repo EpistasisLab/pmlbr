@@ -14,7 +14,7 @@
 #' @examples
 #'  # Features and labels in single data frame
 #'  penguins <- fetch_data('penguins')
-#'  penguins
+#'  head(penguins)
 #'
 #'  # Features and labels stored in separate data structures
 #'  penguins <- fetch_data('penguins', return_X_y=TRUE)

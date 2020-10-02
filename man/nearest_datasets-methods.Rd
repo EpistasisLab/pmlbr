@@ -5,8 +5,7 @@
 \alias{nearest_datasets.default}
 \alias{nearest_datasets.character}
 \alias{nearest_datasets.data.frame}
-\title{------------------------------------------------------------------------------------
-Select nearest datasets given input `x`.}
+\title{Select nearest datasets given input `x`.}
 \usage{
 nearest_datasets(x, ...)
 

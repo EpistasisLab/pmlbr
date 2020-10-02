@@ -1,4 +1,3 @@
-#' ------------------------------------------------------------------------------------
 #' Select nearest datasets given input `x`.
 #'
 #' If `x` is a data.frame object, computes dataset characteristics.
@@ -128,7 +127,6 @@ nearest_datasets.data.frame <- function(
   summary_task[nearest_indices$nn.index, 'dataset']
 }
 
-#' ------------------------------------------------------------------------------------
 #' Computes imbalance value for a given dataset.
 #'
 #' @param target_col Factor or character vector of target column.
@@ -156,7 +154,6 @@ compute_imbalance <- function(target_col){
   list(num_classes = num_classes, imbalance = imb/worst_case)
 }
 
-#' ------------------------------------------------------------------------------------
 #' Get type/class of given vector.
 #'
 #' @param x Input vector.

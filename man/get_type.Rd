@@ -2,8 +2,7 @@
 % Please edit documentation in R/nearest.R
 \name{get_type}
 \alias{get_type}
-\title{------------------------------------------------------------------------------------
-Get type/class of given vector.}
+\title{Get type/class of given vector.}
 \usage{
 get_type(x, include_binary = FALSE)
 }
@@ -17,6 +16,5 @@ Whether binary should be counted separately from categorical.}
 Type/class of `x`.
 }
 \description{
-------------------------------------------------------------------------------------
 Get type/class of given vector.
 }
