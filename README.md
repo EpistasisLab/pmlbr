@@ -27,6 +27,14 @@ so that others could reuse the software.
 
 This package works for any recent version of R.
 
+You can install the released version of **treeheatr** from CRAN with:
+
+``` r
+install.packages('treeheatr')
+```
+
+Or the development version from GitHub with remotes:
+
 ``` r
 # install.packages('remotes') # uncomment to install remotes
 library(remotes)

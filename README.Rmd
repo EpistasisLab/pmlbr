@@ -27,6 +27,13 @@ We thank the **pmlblite**'s author for releasing the source code under the [GPL-
 
 This package works for any recent version of R.
 
+You can install the released version of **treeheatr** from CRAN with:
+```{r, eval=FALSE}
+install.packages('treeheatr')
+```
+
+Or the development version from GitHub with remotes:
+
 ```{r, eval=FALSE}
 # install.packages('remotes') # uncomment to install remotes
 library(remotes)
