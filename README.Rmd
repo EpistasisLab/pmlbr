@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ](https://img.shields.io/badge/dependencies-none-brightgreen.svg?style=flat)
 [![R build status](https://github.com/EpistasisLab/pmlbr/workflows/R-CMD-check/badge.svg)](https://github.com/EpistasisLab/pmlbr/actions)
 
-**pmlbr** is an R interface to the [Penn Machine Learning Benchmarks](https://epistasislab.github.io/penn-ml-benchmarks/) (PMLB) data repository, a large collection of curated benchmark datasets for evaluating and comparing supervised machine learning algorithms.
+**pmlbr** is an R interface to the [Penn Machine Learning Benchmarks](https://epistasislab.github.io/pmlb/) (PMLB) data repository, a large collection of curated benchmark datasets for evaluating and comparing supervised machine learning algorithms.
 These datasets cover a broad range of applications including binary/multi-class classification and regression problems as well as combinations of categorical, ordinal, and continuous features.
 
 This repository is originally forked from [makeyourownmaker/pmlblite](https://github.com/makeyourownmaker/pmlblite).
@@ -123,7 +123,7 @@ Integration of other data repositories are particularly welcome.
 
 ## Alternatives
 
-* [Penn Machine Learning Benchmarks](https://github.com/EpistasisLab/penn-ml-benchmarks)
+* [Penn Machine Learning Benchmarks](https://github.com/EpistasisLab/pmlb)
 * [OpenML](https://www.openml.org/search?type=data)
     Approximately 2,500 datasets - available for download using [R module](https://github.com/openml/openml-r)
 * [UC Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php)
