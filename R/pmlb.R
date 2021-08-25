@@ -12,72 +12,83 @@
 #' @seealso \code{\link{summary_stats}}.
 #' @export
 #' @examples
-#'  # Features and labels in single data frame
-#'  penguins <- fetch_data('penguins')
-#'  head(penguins)
+#' # Features and labels in single data frame
+#' penguins <- fetch_data("penguins")
+#' head(penguins)
 #'
-#'  # Features and labels stored in separate data structures
-#'  penguins <- fetch_data('penguins', return_X_y=TRUE)
-#'  penguins$x # data frame
-#'  penguins$y # vector
-#'
-fetch_data  <- function(dataset_name, return_X_y=FALSE, local_cache_dir=NA, dropna=TRUE) {
-    GITHUB_URL <- 'https://github.com/EpistasisLab/penn-ml-benchmarks/raw/master/datasets'
-    SUFFIX     <- '.tsv.gz'
+#' # Features and labels stored in separate data structures
+#' penguins <- fetch_data("penguins", return_X_y = TRUE)
+#' penguins$x # data frame
+#' penguins$y # vector
+fetch_data <- function(dataset_name, return_X_y = FALSE, local_cache_dir = NA, dropna = TRUE) {
+  GITHUB_URL <- "https://github.com/EpistasisLab/pmlb/raw/master/datasets"
+  SUFFIX <- ".tsv.gz"
 
-    if (!dataset_name %in% dataset_names){
-      stop("'dataset_name' ", dataset_name, " not found in PMLB.\n * Check spelling, capitalisation etc.", call.=FALSE)
+  if (!dataset_name %in% dataset_names) {
+    stop("'dataset_name' ", dataset_name, " not found in PMLB.\n * Check spelling, capitalisation etc.", call. = FALSE)
+  }
+
+  if (!(is.logical(return_X_y) && length(return_X_y) == 1)) {
+    stop("'return_X_y' must be TRUE or FALSE:\n * return_X_y is ", return_X_y, ".", call. = FALSE)
+  }
+
+
+  dataset_url <- paste0(
+    GITHUB_URL, "/",
+    dataset_name, "/",
+    dataset_name,
+    SUFFIX
+  )
+
+
+
+  if (is.na(local_cache_dir)) {
+    tmp <- tempfile()
+    utils::download.file(dataset_url, tmp)
+    dataset <- utils::read.csv(gzfile(tmp),
+      sep = "\t",
+      header = TRUE,
+      stringsAsFactors = FALSE
+    )
+  } else {
+    if (!file.exists(local_cache_dir)) {
+      dir.create(file.path(local_cache_dir))
     }
 
-    if ( return_X_y != TRUE && return_X_y != FALSE ) {
-      stop("'return_X_y' must be TRUE or FALSE:\n * return_X_y is ", return_X_y, ".", call.=FALSE)
-    }
+    dataset_path <- file.path(local_cache_dir, paste0(dataset_name, SUFFIX))
 
-    dataset_url <- paste0(GITHUB_URL,   '/',
-                          dataset_name, '/',
-                          dataset_name,
-                          SUFFIX)
-
-    if ( is.na(local_cache_dir) ) {
-      tmp <- tempfile()
-      utils::download.file(dataset_url, tmp)
-      dataset <- utils::read.csv( gzfile(tmp),
-                                  sep="\t",
-                                  header=TRUE,
-                                  stringsAsFactors=FALSE)
-    } else {
-      if ( !file.exists(local_cache_dir) ) {
-        dir.create(file.path(local_cache_dir))
-      }
-
-      dataset_path <- file.path(local_cache_dir, paste0(dataset_name, SUFFIX))
-
-      # read file from cache
-      if ( file.exists(dataset_path) ) {
-        dataset <- utils::read.csv( dataset_path,
-                                    sep="\t",
-                                    header=TRUE,
-                                    stringsAsFactors=FALSE)
+    # read file from cache
+    if (file.exists(dataset_path)) {
+      dataset <- utils::read.csv(dataset_path,
+        sep = "\t",
+        header = TRUE,
+        stringsAsFactors = FALSE
+      )
       # download file to cache and read it
-      } else {
-        utils::download.file(dataset_url, dataset_path)
-        dataset <- utils::read.csv( dataset_path,
-                                    sep="\t",
-                                    header=TRUE,
-                                    stringsAsFactors=FALSE)
-      }
+    } else {
+      utils::download.file(dataset_url, dataset_path)
+      dataset <- utils::read.csv(dataset_path,
+        sep = "\t",
+        header = TRUE,
+        stringsAsFactors = FALSE
+      )
     }
+  }
 
-    if ( isTRUE(return_X_y) ) {
-      x <- dataset[, names(dataset) != "target"]
-      y <- dataset$target
-      dataset <- list(x=x, y=y)
-    }
+  if (return_X_y) {
+    dataset <- list(
+      x = dataset[, names(dataset) != "target"],
+      y = dataset$target
+    )
+  }
 
-    if (dropna)
-      dataset <- stats::na.omit(dataset)
-    return(dataset)
+  if (dropna) {
+    return(stats::na.omit(dataset))
+  }
+
+  dataset
 }
+
 
 
 #' pmlb: R interface to the Penn Machine Learning Benchmarks data repository
