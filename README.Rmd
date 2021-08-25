@@ -29,7 +29,7 @@ This package works for any recent version of R.
 
 You can install the released version of **pmlbr** from CRAN with:
 ```{r, eval=FALSE}
-install.packages('pmlbr')
+install.packages("pmlbr")
 ```
 
 Or the development version from GitHub with remotes:
@@ -48,11 +48,11 @@ For example:
 library(pmlbr)
 
 # Download features and labels for penguins dataset in single data frame
-penguins <- fetch_data('penguins')
+penguins <- fetch_data("penguins")
 str(penguins)
 
 # Download features and labels for penguins dataset in separate data structures
-penguins <- fetch_data('penguins', return_X_y=TRUE)
+penguins <- fetch_data("penguins", return_X_y = TRUE)
 head(penguins$x) # data frame
 head(penguins$y) # vector
 ```
@@ -72,8 +72,8 @@ Selecting a subset of datasets that satisfy certain conditions is straight forwa
 For example, if we need datasets with fewer than 100 observations for a classification task: 
 ```{r warning=FALSE, message=FALSE}
 library(dplyr)
-summary_stats %>% 
-  filter(n_instances < 100, task == 'classification') %>% 
+summary_stats %>%
+  filter(n_instances < 100, task == "classification") %>%
   pull(dataset)
 ```
 
