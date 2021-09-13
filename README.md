@@ -1,6 +1,11 @@
 *pmlbr*: an introduction
 ================
 
+[![vignette](https://img.shields.io/badge/-Vignette-green?logo=spinnaker)](https://epistasislab.github.io/pmlb/using-r.html)
+[![documentation](https://img.shields.io/badge/-Documentation-purple?logo=read-the-docs)](https://epistasislab.github.io/pmlb/r-ref.html)
+[![github-action-status](https://img.shields.io/github/workflow/status/epistasislab/pmlbr/R-CMD-check?logo=github)](https://github.com/epistasislab/pmlbr/actions)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/badger?color=blue)](https://cran.r-project.org/package=badger)
+
 ![Lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat)
 ![R %&gt;%=
 3.1.0](https://img.shields.io/badge/R-%3E%3D3.1.0-blue.svg?style=flat)
