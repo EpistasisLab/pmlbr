@@ -4,7 +4,7 @@
 [![vignette](https://img.shields.io/badge/-Vignette-green?logo=spinnaker)](https://epistasislab.github.io/pmlb/using-r.html)
 [![documentation](https://img.shields.io/badge/-Documentation-purple?logo=read-the-docs)](https://epistasislab.github.io/pmlb/r-ref.html)
 [![github-action-status](https://img.shields.io/github/workflow/status/epistasislab/pmlbr/R-CMD-check?logo=github)](https://github.com/epistasislab/pmlbr/actions)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/badger?color=blue)](https://cran.r-project.org/package=badger)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/pmlbr?color=blue)](https://cran.r-project.org/package=pmlbr)
 
 ![Lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat)
 ![R %&gt;%=
