@@ -101,7 +101,10 @@ Further info:
 
 ### Citing
 
-If you use PMLB in a scientific publication, please consider citing the following paper:
+If you use PMLB in a scientific publication, please consider citing one of the following papers:
+
+Joseph D. Romano, Le, Trang T., William La Cava, John T. Gregg, Daniel J. Goldberg, Praneel Chakraborty, Natasha L. Ray, Daniel Himmelstein, Weixuan Fu, and Jason H. Moore. 
+[PMLB v1.0: an open source dataset collection for benchmarking machine learning methods.](https://arxiv.org/abs/2012.00058) _arXiv preprint_ arXiv:2012.00058 (2020).
 
 Randal S. Olson, William La Cava, Patryk Orzechowski, Ryan J. Urbanowicz, and Jason H. Moore (2017).
 [PMLB: a large benchmark suite for machine learning evaluation and comparison](https://biodatamining.biomedcentral.com/articles/10.1186/s13040-017-0154-4).
@@ -111,7 +114,6 @@ BioData Mining 10, page 36.
 ## Roadmap
 
 * Add tests
-* Submit library to CRAN
 
 
 ## Contributing

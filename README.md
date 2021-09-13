@@ -2,15 +2,15 @@
 ================
 
 ![Lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat)
-![R %\>%=
+![R %&gt;%=
 3.1.0](https://img.shields.io/badge/R-%3E%3D3.1.0-blue.svg?style=flat)
 ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg?style=flat)
 [![R build
 status](https://github.com/EpistasisLab/pmlbr/workflows/R-CMD-check/badge.svg)](https://github.com/EpistasisLab/pmlbr/actions)
 
 **pmlbr** is an R interface to the [Penn Machine Learning
-Benchmarks](https://epistasislab.github.io/penn-ml-benchmarks/) (PMLB)
-data repository, a large collection of curated benchmark datasets for
+Benchmarks](https://epistasislab.github.io/pmlb/) (PMLB) data
+repository, a large collection of curated benchmark datasets for
 evaluating and comparing supervised machine learning algorithms. These
 datasets cover a broad range of applications including
 binary/multi-class classification and regression problems as well as
@@ -30,7 +30,7 @@ This package works for any recent version of R.
 You can install the released version of **pmlbr** from CRAN with:
 
 ``` r
-install.packages('pmlbr')
+install.packages("pmlbr")
 ```
 
 Or the development version from GitHub with remotes:
@@ -50,7 +50,7 @@ download data from the PMLB repository. For example:
 library(pmlbr)
 
 # Download features and labels for penguins dataset in single data frame
-penguins <- fetch_data('penguins')
+penguins <- fetch_data("penguins")
 str(penguins)
 ```
 
@@ -68,7 +68,7 @@ str(penguins)
 
 ``` r
 # Download features and labels for penguins dataset in separate data structures
-penguins <- fetch_data('penguins', return_X_y=TRUE)
+penguins <- fetch_data("penguins", return_X_y = TRUE)
 head(penguins$x) # data frame
 ```
 
@@ -138,8 +138,8 @@ fewer than 100 observations for a classification task:
 
 ``` r
 library(dplyr)
-summary_stats %>% 
-  filter(n_instances < 100, task == 'classification') %>% 
+summary_stats %>%
+  filter(n_instances < 100, task == "classification") %>%
   pull(dataset)
 ```
 
@@ -155,11 +155,11 @@ summary_stats %>%
 
 All data sets are stored in a common format:
 
-  - First row is the column names
-  - Each following row corresponds to an individual observation
-  - The target column is named `target`
-  - All columns are tab (`\t`) separated
-  - All files are compressed with `gzip` to conserve space
+-   First row is the column names
+-   Each following row corresponds to an individual observation
+-   The target column is named `target`
+-   All columns are tab (`\t`) separated
+-   All files are compressed with `gzip` to conserve space
 
 This R library includes summaries of the classification and regression
 data sets but does **not** store any of the PMLB data sets. The data
@@ -175,8 +175,15 @@ Further info:
 
 ### Citing
 
-If you use PMLB in a scientific publication, please consider citing the
-following paper:
+If you use PMLB in a scientific publication, please consider citing one
+of the following papers:
+
+Joseph D. Romano, Le, Trang T., William La Cava, John T. Gregg, Daniel
+J. Goldberg, Praneel Chakraborty, Natasha L. Ray, Daniel Himmelstein,
+Weixuan Fu, and Jason H. Moore. [PMLB v1.0: an open source dataset
+collection for benchmarking machine learning
+methods.](https://arxiv.org/abs/2012.00058) *arXiv preprint*
+arXiv:2012.00058 (2020).
 
 Randal S. Olson, William La Cava, Patryk Orzechowski, Ryan J.
 Urbanowicz, and Jason H. Moore (2017). [PMLB: a large benchmark suite
@@ -186,8 +193,7 @@ BioData Mining 10, page 36.
 
 ## Roadmap
 
-  - Add tests
-  - Submit library to CRAN
+-   Add tests
 
 ## Contributing
 
@@ -198,21 +204,21 @@ Integration of other data repositories are particularly welcome.
 
 ## Alternatives
 
-  - [Penn Machine Learning
-    Benchmarks](https://github.com/EpistasisLab/penn-ml-benchmarks)
-  - [OpenML](https://www.openml.org/search?type=data) Approximately
+-   [Penn Machine Learning
+    Benchmarks](https://github.com/EpistasisLab/pmlb)
+-   [OpenML](https://www.openml.org/search?type=data) Approximately
     2,500 datasets - available for download using [R
     module](https://github.com/openml/openml-r)
-  - [UC Irvine Machine Learning
+-   [UC Irvine Machine Learning
     Repository](https://archive.ics.uci.edu/ml/index.php)
-  - [mlbench: Machine Learning Benchmark
+-   [mlbench: Machine Learning Benchmark
     Problems](https://cran.r-project.org/package=mlbench)
-  - [Rdatasets: An archive of datasets distributed with
+-   [Rdatasets: An archive of datasets distributed with
     R](https://vincentarelbundock.github.io/Rdatasets/)
-  - [datasets.load: Visual interface for loading datasets in RStudio
+-   [datasets.load: Visual interface for loading datasets in RStudio
     from all installed (unloaded)
     packages](https://cran.r-project.org/package=datasets.load)
-  - [stackoverflow: How do I get a list of built-in data sets in
+-   [stackoverflow: How do I get a list of built-in data sets in
     R?](https://stackoverflow.com/questions/33797666/how-do-i-get-a-list-of-built-in-data-sets-in-r)
 
 ## License
