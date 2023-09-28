@@ -8,7 +8,7 @@
 An object of class \code{character} of length 162.
 }
 \source{
-\url{https://github.com/EpistasisLab/penn-ml-benchmarks}
+\url{https://github.com/EpistasisLab/pmlb}
 }
 \usage{
 classification_dataset_names

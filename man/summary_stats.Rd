@@ -20,7 +20,7 @@ A data frame with 10 variables:
 }
 }
 \source{
-\url{https://github.com/EpistasisLab/penn-ml-benchmarks}
+\url{https://github.com/EpistasisLab/pmlb}
 }
 \usage{
 summary_stats

@@ -1,4 +1,4 @@
-links_to_stats <- 'https://github.com/EpistasisLab/penn-ml-benchmarks/raw/master/pmlb/all_summary_stats.tsv'
+links_to_stats <- 'https://github.com/EpistasisLab/pmlb/raw/master/pmlb/all_summary_stats.tsv'
 summary_stats <- read.csv(links_to_stats, sep = '\t')
 colnames(summary_stats) <- tolower(gsub('X.', 'n_', colnames(summary_stats)))
 dataset_names <- summary_stats$dataset

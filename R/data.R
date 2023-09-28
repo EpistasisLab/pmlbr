@@ -2,21 +2,21 @@
 #'
 #' A list of the names of available datasets
 #'
-#' @source \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
+#' @source \url{https://github.com/EpistasisLab/pmlb}
 "dataset_names"
 
 #' Names of available classification datasets
 #'
 #' A list of the names of available classification datasets
 #'
-#' @source \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
+#' @source \url{https://github.com/EpistasisLab/pmlb}
 "classification_dataset_names"
 
 #' Names of available regression datasets
 #'
 #' A list of the names of available regression datasets
 #'
-#' @source \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
+#' @source \url{https://github.com/EpistasisLab/pmlb}
 "regression_dataset_names"
 
 #' Summary statistics for the all datasets
@@ -35,5 +35,5 @@
 #'   \item{task:}{Type of problem/task. Can be classification or regression.}
 #' }
 #'
-#' @source \url{https://github.com/EpistasisLab/penn-ml-benchmarks}
+#' @source \url{https://github.com/EpistasisLab/pmlb}
 "summary_stats"

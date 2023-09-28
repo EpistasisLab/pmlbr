@@ -10,7 +10,7 @@
 #' @param n_neighbors Integer. The number of dataset names to return as neighbors.
 #' @param dimensions Character vector specifying dataset characteristics to include in similarity calculation.
 #' Dimensions must correspond to numeric columns of
-#' [all_summary_stats.tsv](https://github.com/EpistasisLab/penn-ml-benchmarks/blob/master/pmlb/all_summary_stats.tsv).
+#' [all_summary_stats.tsv](https://github.com/EpistasisLab/pmlb/blob/master/pmlb/all_summary_stats.tsv).
 #' If 'all' (default), uses all numeric columns.
 #' @param task Character string specifying classification or regression for summary stat generation.
 #' @param target_name Character string specifying column of target/dependent variable.
