@@ -1,7 +1,6 @@
 
 [![vignette](https://img.shields.io/badge/-Vignette-green?logo=spinnaker)](https://epistasislab.github.io/pmlb/using-r.html)
 [![documentation](https://img.shields.io/badge/-Documentation-purple?logo=read-the-docs)](https://epistasislab.github.io/pmlb/r-ref.html)
-[![github-action-status](https://img.shields.io/github/workflow/status/epistasislab/pmlbr/R-CMD-check?logo=github)](https://github.com/epistasislab/pmlbr/actions)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/pmlbr?color=blue)](https://cran.r-project.org/package=pmlbr)
 
 # pmlbr <img src="man/figures/logo.png" align="right" height="139"/>
@@ -160,11 +159,11 @@ summary_stats %>%
 
 All data sets are stored in a common format:
 
--   First row is the column names
--   Each following row corresponds to an individual observation
--   The target column is named `target`
--   All columns are tab (`\t`) separated
--   All files are compressed with `gzip` to conserve space
+- First row is the column names
+- Each following row corresponds to an individual observation
+- The target column is named `target`
+- All columns are tab (`\t`) separated
+- All files are compressed with `gzip` to conserve space
 
 This R library includes summaries of the classification and regression
 data sets but does **not** store any of the PMLB data sets. The data
@@ -198,7 +197,7 @@ BioData Mining 10, page 36.
 
 ## Roadmap
 
--   Add tests
+- Add tests
 
 ## Contributing
 
@@ -209,22 +208,22 @@ Integration of other data repositories are particularly welcome.
 
 ## Alternatives
 
--   [Penn Machine Learning
-    Benchmarks](https://github.com/EpistasisLab/pmlb)
--   [OpenML](https://www.openml.org/search?type=data) Approximately
-    2,500 datasets - available for download using [R
-    module](https://github.com/openml/openml-r)
--   [UC Irvine Machine Learning
-    Repository](https://archive.ics.uci.edu/ml/index.php)
--   [mlbench: Machine Learning Benchmark
-    Problems](https://cran.r-project.org/package=mlbench)
--   [Rdatasets: An archive of datasets distributed with
-    R](https://vincentarelbundock.github.io/Rdatasets/)
--   [datasets.load: Visual interface for loading datasets in RStudio
-    from all installed (unloaded)
-    packages](https://cran.r-project.org/package=datasets.load)
--   [stackoverflow: How do I get a list of built-in data sets in
-    R?](https://stackoverflow.com/questions/33797666/how-do-i-get-a-list-of-built-in-data-sets-in-r)
+- [Penn Machine Learning
+  Benchmarks](https://github.com/EpistasisLab/pmlb)
+- [OpenML](https://www.openml.org/search?type=data) Approximately 2,500
+  datasets - available for download using [R
+  module](https://github.com/openml/openml-r)
+- [UC Irvine Machine Learning
+  Repository](https://archive.ics.uci.edu/ml/index.php)
+- [mlbench: Machine Learning Benchmark
+  Problems](https://cran.r-project.org/package=mlbench)
+- [Rdatasets: An archive of datasets distributed with
+  R](https://vincentarelbundock.github.io/Rdatasets/)
+- [datasets.load: Visual interface for loading datasets in RStudio from
+  all installed (unloaded)
+  packages](https://cran.r-project.org/package=datasets.load)
+- [stackoverflow: How do I get a list of built-in data sets in
+  R?](https://stackoverflow.com/questions/33797666/how-do-i-get-a-list-of-built-in-data-sets-in-r)
 
 ## License
 
