@@ -5,7 +5,7 @@ Description: Check available classification and regression data sets from the PM
     These data sets cover a range of applications, and include binary/multi-class classification problems and 
     regression problems, as well as combinations of categorical, ordinal, and continuous features.
     There are currently over 150 datasets included in the PMLB repository.
-Version: 0.2.0.9000
+Version: 0.2.1
 Authors@R: c(
     person("Trang", "Le", email = "grixor@gmail.com", role = c("aut", "cre"), comment = "https://trang.page/"),
     person("makeyourownmaker", email = "makeyourownmaker@gmx.com", role = "aut", comment = "https://github.com/makeyourownmaker"),
