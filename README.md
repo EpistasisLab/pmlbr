@@ -214,7 +214,7 @@ Integration of other data repositories are particularly welcome.
   datasets - available for download using [R
   module](https://github.com/openml/openml-r)
 - [UC Irvine Machine Learning
-  Repository](https://archive.ics.uci.edu/ml/index.php)
+  Repository](https://archive.ics.uci.edu/datasets)
 - [mlbench: Machine Learning Benchmark
   Problems](https://cran.r-project.org/package=mlbench)
 - [Rdatasets: An archive of datasets distributed with
