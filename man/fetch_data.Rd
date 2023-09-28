@@ -27,15 +27,14 @@ Download a data set from the PMLB repository, (optionally) store it locally, and
 You must be connected to the internet if you are fetching a data set that is not cached locally.
 }
 \examples{
- # Features and labels in single data frame
- penguins <- fetch_data('penguins')
- penguins
+# Features and labels in single data frame
+penguins <- fetch_data("penguins")
+head(penguins)
 
- # Features and labels stored in separate data structures
- penguins <- fetch_data('penguins', return_X_y=TRUE)
- penguins$x # data frame
- penguins$y # vector
-
+# Features and labels stored in separate data structures
+penguins <- fetch_data("penguins", return_X_y = TRUE)
+penguins$x # data frame
+penguins$y # vector
 }
 \seealso{
 \code{\link{summary_stats}}.

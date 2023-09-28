@@ -165,9 +165,9 @@ compute_imbalance <- function(target_col){
 get_type <- function(x, include_binary = FALSE){
   x <- stats::na.omit(x)
 
-  if (class(x) == 'numeric'){
+  if (inherits(x, 'numeric')){
     return('continuous')
-  } else if (class(x) %in% c('integer', 'factor')){
+  } else if (inherits(x, 'integer') || inherits(x, 'factor')){
     if (include_binary){
       if (length(unique(x)) == 2) return('binary')}
     return('categorical')
