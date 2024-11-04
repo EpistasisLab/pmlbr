@@ -1,4 +1,4 @@
-# pmlbr (development version)
+# pmlbr 0.2.2
 
 # pmlbr 0.2.1
 
