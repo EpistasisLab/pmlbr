@@ -119,11 +119,8 @@ fetch_data <- function(dataset_name, return_X_y = FALSE, local_cache_dir = NA, d
 #'
 #' BioData Mining 10, page 36.
 #'
-#' I have no affiliation with the authors of PMLB or the University of Pennsylvania.
-#'
-#' @docType package
 #' @name pmlb
-NULL
+"_PACKAGE"
 
 #' Download a File Gracefully with Retry Mechanism
 #'

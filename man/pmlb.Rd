@@ -2,6 +2,7 @@
 % Please edit documentation in R/pmlb.R
 \docType{package}
 \name{pmlb}
+\alias{pmlbr}
 \alias{pmlb}
 \title{pmlb: R interface to the Penn Machine Learning Benchmarks data repository}
 \description{
@@ -27,6 +28,27 @@ PMLB: a large benchmark suite for machine learning evaluation and comparison
 https://biodatamining.biomedcentral.com/articles/10.1186/s13040-017-0154-4
 
 BioData Mining 10, page 36.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/EpistasisLab/pmlbr}
+  \item Report bugs at \url{https://github.com/EpistasisLab/pmlbr/issues}
+}
 
-I have no affiliation with the authors of PMLB or the University of Pennsylvania.
+}
+\author{
+\strong{Maintainer}: Trang Le \email{grixor@gmail.com} (https://trang.page/)
+
+Authors:
+\itemize{
+  \item makeyourownmaker \email{makeyourownmaker@gmx.com} (https://github.com/makeyourownmaker)
+  \item Jason Moore \email{jhmoore@upenn.edu} (http://www.epistasisblog.org/)
+}
+
+Other contributors:
+\itemize{
+  \item University of Pennsylvania [copyright holder]
+}
+
 }

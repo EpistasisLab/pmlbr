@@ -2,7 +2,6 @@
 % Please edit documentation in R/pmlbr-package.R
 \docType{package}
 \name{pmlbr-package}
-\alias{pmlbr}
 \alias{pmlbr-package}
 \title{pmlbr: Interface to the Penn Machine Learning Benchmarks Data Repository}
 \description{
