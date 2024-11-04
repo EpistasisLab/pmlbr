@@ -32,7 +32,6 @@ fetch_data <- function(dataset_name, return_X_y = FALSE, local_cache_dir = NA, d
     stop("'return_X_y' must be TRUE or FALSE:\n * return_X_y is ", return_X_y, ".", call. = FALSE)
   }
 
-
   dataset_url <- paste0(
     GITHUB_URL, "/",
     dataset_name, "/",
@@ -40,16 +39,18 @@ fetch_data <- function(dataset_name, return_X_y = FALSE, local_cache_dir = NA, d
     SUFFIX
   )
 
-
-
   if (is.na(local_cache_dir)) {
     tmp <- tempfile()
-    utils::download.file(dataset_url, tmp)
-    dataset <- utils::read.csv(gzfile(tmp),
-      sep = "\t",
-      header = TRUE,
-      stringsAsFactors = FALSE
-    )
+    if (!graceful_download(dataset_url, tmp)) {
+      message("Continuing gracefully without the dataset.")
+    } else {
+      dataset <- utils::read.csv(
+        gzfile(tmp),
+        sep = "\t",
+        header = TRUE,
+        stringsAsFactors = FALSE
+      )
+    }
   } else {
     if (!file.exists(local_cache_dir)) {
       dir.create(file.path(local_cache_dir))
@@ -66,12 +67,15 @@ fetch_data <- function(dataset_name, return_X_y = FALSE, local_cache_dir = NA, d
       )
       # download file to cache and read it
     } else {
-      utils::download.file(dataset_url, dataset_path)
-      dataset <- utils::read.csv(dataset_path,
-        sep = "\t",
-        header = TRUE,
-        stringsAsFactors = FALSE
-      )
+      if (!graceful_download(dataset_url, dataset_path)) {
+        message("Continuing gracefully without the dataset.")
+      } else {
+        dataset <- utils::read.csv(dataset_path,
+          sep = "\t",
+          header = TRUE,
+          stringsAsFactors = FALSE
+        )
+      }
     }
   }
 
@@ -120,3 +124,42 @@ fetch_data <- function(dataset_name, return_X_y = FALSE, local_cache_dir = NA, d
 #' @docType package
 #' @name pmlb
 NULL
+
+#' Download a File Gracefully with Retry Mechanism
+#'
+#' Attempts to download a file from a specified URL, retrying a set number of times if the download fails.
+#' This function meets CRAN's requirement for gracefully handling the use of internet resources by
+#' catching errors and returning a warning message if the download ultimately fails.
+#'
+#' @param url Character. The URL of the file to download.
+#' @param destfile Character. The path to the destination file where the downloaded content will be saved.
+#' @param retries Integer. The maximum number of download attempts (default is 3).
+#'
+#' @return Logical. Returns `TRUE` if the download succeeds, `FALSE` otherwise.
+#' @examples
+#' \dontrun{
+#' dataset_url <- "https://example.com/dataset.csv"
+#' tmp <- tempfile(fileext = ".csv")
+#' success <- download_file_gracefully(dataset_url, tmp)
+#' if (!success) {
+#'   message("Continuing gracefully without the dataset.")
+#' }
+#' }
+graceful_download <- function(url, destfile, retries = 3) {
+  attempt <- 1
+  while (attempt <= retries) {
+    tryCatch(
+      {
+        utils::download.file(url, destfile)
+        message("Download successful.")
+        return(TRUE)
+      },
+      error = function(e) {
+        message(paste("Attempt", attempt, "failed:", e$message))
+        attempt <<- attempt + 1
+      }
+    )
+  }
+  warning("Download failed after ", retries, " attempts.")
+  return(FALSE)
+}
