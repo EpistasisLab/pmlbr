@@ -22,9 +22,10 @@
 #' @export
 #'
 #' @examples
-#' nearest_datasets('penguins')
-#' nearest_datasets(fetch_data('penguins'))
-#'
+#' if (interactive()){
+#'   nearest_datasets('penguins')
+#'   nearest_datasets(fetch_data('penguins'))
+#' }
 nearest_datasets <- function(x, ...){
   UseMethod('nearest_datasets', x)
 }

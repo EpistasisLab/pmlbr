@@ -28,13 +28,16 @@ You must be connected to the internet if you are fetching a data set that is not
 }
 \examples{
 # Features and labels in single data frame
-penguins <- fetch_data("penguins")
-head(penguins)
+if (interactive()){
+  penguins <- fetch_data("penguins")
+  head(penguins)
 
-# Features and labels stored in separate data structures
-penguins <- fetch_data("penguins", return_X_y = TRUE)
-penguins$x # data frame
-penguins$y # vector
+  # Features and labels stored in separate data structures
+  penguins <- fetch_data("penguins", return_X_y = TRUE)
+  penguins$x # data frame
+  penguins$y # vector
+}
+
 }
 \seealso{
 \code{\link{summary_stats}}.

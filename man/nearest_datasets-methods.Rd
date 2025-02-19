@@ -57,7 +57,8 @@ If `x` is a character object specifying dataset name from PMLB,
 use the already computed dataset statistics/characteristics in `summary_stats`.
 }
 \examples{
-nearest_datasets('penguins')
-nearest_datasets(fetch_data('penguins'))
-
+if (interactive()){
+  nearest_datasets('penguins')
+  nearest_datasets(fetch_data('penguins'))
+}
 }
