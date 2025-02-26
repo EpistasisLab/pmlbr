@@ -1,9 +1,9 @@
-#' Get Summary Statistics
+#' Get metadata for all datasets in PMLB.
 #'
-#' Downloads and processes the latest summary statistics from PMLB.
-#' Use cache if available.
+#' Metadata like summary statistics and names of available datasets
+#' on the PMLB repository.
 #'
-#' @return A list containing summary_stats, dataset_names, classification_dataset_names, and regression_dataset_names
+#' @return A list containing summary_stats, dataset_names, classification_datasets, and regression_datasets
 #' @export
 #' @examples
 #' if (interactive()) {
@@ -29,12 +29,12 @@ pmlb_metadata <- function() {
       envir = .pmlbr_env
     )
     assign(
-      "regression_dataset_names",
+      "regression_datasets",
       sort(summary_stats[summary_stats$task == "regression", "dataset"]),
       envir = .pmlbr_env
     )
     assign(
-      "classification_dataset_names",
+      "classification_datasets",
       sort(summary_stats[summary_stats$task == "classification", "dataset"]),
       envir = .pmlbr_env
     )
@@ -43,8 +43,8 @@ pmlb_metadata <- function() {
   list(
     summary_stats = .pmlbr_env$summary_stats,
     dataset_names = .pmlbr_env$dataset_names,
-    classification_dataset_names = .pmlbr_env$classification_dataset_names,
-    regression_dataset_names = .pmlbr_env$regression_dataset_names
+    classification_datasets = .pmlbr_env$classification_datasets,
+    regression_datasets = .pmlbr_env$regression_datasets
   )
 }
 
@@ -70,7 +70,7 @@ dataset_names <- function() {
 #'   sample(classification_datasets(), 10)
 #' }
 classification_datasets <- function() {
-  pmlb_metadata()$classification_dataset_names
+  pmlb_metadata()$classification_datasets
 }
 
 #' Regression datasets
@@ -82,12 +82,14 @@ classification_datasets <- function() {
 #'   sample(regression_datasets(), 10)
 #' }
 regression_datasets <- function() {
-  pmlb_metadata()$regression_dataset_names
+  pmlb_metadata()$regression_datasets
 }
 
-#' All summary statistics
+#' Summary statistics
 #'
-#' @return A character vector of regression dataset names.
+#' @return A dataframe of summary statistics of all available datasets,
+#' including number of instances/rows, number of columns/features, task, etc.
+#'
 #' @export
 #' @examples
 #' if (interactive()) {

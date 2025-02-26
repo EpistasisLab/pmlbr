@@ -2,16 +2,16 @@
 % Please edit documentation in R/list_datasets.R
 \name{pmlb_metadata}
 \alias{pmlb_metadata}
-\title{Get Summary Statistics}
+\title{Get metadata for all datasets in PMLB.}
 \usage{
 pmlb_metadata()
 }
 \value{
-A list containing summary_stats, dataset_names, classification_dataset_names, and regression_dataset_names
+A list containing summary_stats, dataset_names, classification_datasets, and regression_datasets
 }
 \description{
-Downloads and processes the latest summary statistics from PMLB.
-Use cache if available.
+Metadata like summary statistics and names of available datasets
+on the PMLB repository.
 }
 \examples{
 if (interactive()) {

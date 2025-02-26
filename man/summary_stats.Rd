@@ -2,15 +2,16 @@
 % Please edit documentation in R/list_datasets.R
 \name{summary_stats}
 \alias{summary_stats}
-\title{All summary statistics}
+\title{Summary statistics}
 \usage{
 summary_stats()
 }
 \value{
-A character vector of regression dataset names.
+A dataframe of summary statistics of all available datasets,
+including number of instances/rows, number of columns/features, task, etc.
 }
 \description{
-All summary statistics
+Summary statistics
 }
 \examples{
 if (interactive()) {
