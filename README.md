@@ -55,6 +55,11 @@ library(pmlbr)
 
 # Download features and labels for penguins dataset in single data frame
 penguins <- fetch_data("penguins")
+```
+
+    ## Download successful.
+
+``` r
 str(penguins)
 ```
 
@@ -73,6 +78,11 @@ str(penguins)
 ``` r
 # Download features and labels for penguins dataset in separate data structures
 penguins <- fetch_data("penguins", return_X_y = TRUE)
+```
+
+    ## Download successful.
+
+``` r
 head(penguins$x) # data frame
 ```
 
@@ -94,40 +104,45 @@ Let’s check other available datasets and their summary statistics:
 
 ``` r
 # Dataset names
-head(classification_dataset_names, 9)
+sample(classification_datasets(), 9)
 ```
 
-    ## [1] "adult"                  "agaricus_lepiota"       "allbp"                 
-    ## [4] "allhyper"               "allhypo"                "allrep"                
-    ## [7] "analcatdata_aids"       "analcatdata_asbestos"   "analcatdata_authorship"
+    ## [1] "heart_disease_hungarian"       "fars"                         
+    ## [3] "allrep"                        "_deprecated_colic"            
+    ## [5] "Hill_Valley_without_noise"     "_deprecated_german"           
+    ## [7] "sleep"                         "_deprecated_cleveland_nominal"
+    ## [9] "analcatdata_happiness"
 
 ``` r
-head(regression_dataset_names, 9)
+sample(regression_datasets(), 9)
 ```
 
-    ## [1] "1027_ESL"             "1028_SWD"             "1029_LEV"            
-    ## [4] "1030_ERA"             "1089_USCrime"         "1096_FacultySalaries"
-    ## [7] "1191_BNG_pbc"         "1193_BNG_lowbwt"      "1196_BNG_pharynx"
+    ## [1] "527_analcatdata_election2000" "1089_USCrime"                
+    ## [3] "feynman_III_8_54"             "225_puma8NH"                 
+    ## [5] "657_fri_c2_250_10"            "strogatz_glider2"            
+    ## [7] "611_fri_c3_100_5"             "586_fri_c3_1000_25"          
+    ## [9] "650_fri_c0_500_50"
 
 ``` r
 # Dataset summaries
-head(summary_stats)
+sum_stats <- summary_stats()
+head(sum_stats)
 ```
 
     ##                dataset n_instances n_features n_binary_features
     ## 1             1027_ESL         488          4                 0
-    ## 2             1028_SWD        1000         10                 0
+    ## 2             1028_SWD        1000         10                 1
     ## 3             1029_LEV        1000          4                 0
     ## 4             1030_ERA        1000          4                 0
-    ## 5         1089_USCrime          47         13                 0
-    ## 6 1096_FacultySalaries          50          4                 0
+    ## 5         1089_USCrime          47         13                 1
+    ## 6 1096_FacultySalaries          50          4                 1
     ##   n_categorical_features n_continuous_features endpoint_type n_classes
-    ## 1                      0                     4    continuous         9
-    ## 2                      0                    10    continuous         4
-    ## 3                      0                     4    continuous         5
+    ## 1                      4                     0    continuous         9
+    ## 2                      9                     0    continuous         4
+    ## 3                      4                     0    continuous         5
     ## 4                      0                     4    continuous         9
-    ## 5                      0                    13    continuous        42
-    ## 6                      0                     4    continuous        39
+    ## 5                      0                    12    continuous        42
+    ## 6                      0                     3    continuous        39
     ##     imbalance       task
     ## 1 0.099363200 regression
     ## 2 0.108290667 regression
@@ -142,7 +157,7 @@ fewer than 100 observations for a classification task:
 
 ``` r
 library(dplyr)
-summary_stats %>%
+sum_stats %>%
   filter(n_instances < 100, task == "classification") %>%
   pull(dataset)
 ```
