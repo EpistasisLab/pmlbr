@@ -39,7 +39,7 @@ or data.frame of n_samples x n_features(or n_features+1 with a target column)}
 
 \item{dimensions}{Character vector specifying dataset characteristics to include in similarity calculation.
 Dimensions must correspond to numeric columns of
-[all_summary_stats.tsv](https://github.com/EpistasisLab/pmlb/blob/master/pmlb/all_summary_stats.tsv).
+[all_summary_stats.tsv](https://github.com/EpistasisLab/pmlb/blob/master/pmlb/all_summarystats.tsv).
 If 'all' (default), uses all numeric columns.}
 
 \item{target_name}{Character string specifying column of target/dependent variable.}
