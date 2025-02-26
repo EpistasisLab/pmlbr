@@ -9,7 +9,7 @@
 #' @param local_cache_dir The directory on your local machine to store the data files in
 #' (defaults to NA, indicating cache will not be used)
 #' @param dropna Boolean. Whether rows with NAs should be automatically dropped. Default to TRUE.
-#' @seealso \code{\link{summary_stats}}.
+#' @seealso \code{\link{pmlb_metadata}}.
 #' @export
 #' @examples
 #' # Features and labels in single data frame
@@ -23,21 +23,38 @@
 #'   penguins$y # vector
 #' }
 #'
-fetch_data <- function(dataset_name, return_X_y = FALSE, local_cache_dir = NA, dropna = TRUE) {
+fetch_data <- function(
+  dataset_name,
+  return_X_y = FALSE,
+  local_cache_dir = NA,
+  dropna = TRUE
+) {
   GITHUB_URL <- "https://github.com/EpistasisLab/pmlb/raw/master/datasets"
   SUFFIX <- ".tsv.gz"
 
-  if (!dataset_name %in% dataset_names) {
-    stop("'dataset_name' ", dataset_name, " not found in PMLB.\n * Check spelling, capitalisation etc.", call. = FALSE)
+  if (!dataset_name %in% dataset_names()) {
+    stop(
+      "'dataset_name' ",
+      dataset_name,
+      " not found in PMLB.\n * Check spelling, capitalisation etc.",
+      call. = FALSE
+    )
   }
 
   if (!(is.logical(return_X_y) && length(return_X_y) == 1)) {
-    stop("'return_X_y' must be TRUE or FALSE:\n * return_X_y is ", return_X_y, ".", call. = FALSE)
+    stop(
+      "'return_X_y' must be TRUE or FALSE:\n * return_X_y is ",
+      return_X_y,
+      ".",
+      call. = FALSE
+    )
   }
 
   dataset_url <- paste0(
-    GITHUB_URL, "/",
-    dataset_name, "/",
+    GITHUB_URL,
+    "/",
+    dataset_name,
+    "/",
     dataset_name,
     SUFFIX
   )
@@ -63,7 +80,8 @@ fetch_data <- function(dataset_name, return_X_y = FALSE, local_cache_dir = NA, d
 
     # read file from cache
     if (file.exists(dataset_path)) {
-      dataset <- utils::read.csv(dataset_path,
+      dataset <- utils::read.csv(
+        dataset_path,
         sep = "\t",
         header = TRUE,
         stringsAsFactors = FALSE
@@ -73,7 +91,8 @@ fetch_data <- function(dataset_name, return_X_y = FALSE, local_cache_dir = NA, d
       if (!graceful_download(dataset_url, dataset_path)) {
         message("Continuing gracefully without the dataset.")
       } else {
-        dataset <- utils::read.csv(dataset_path,
+        dataset <- utils::read.csv(
+          dataset_path,
           sep = "\t",
           header = TRUE,
           stringsAsFactors = FALSE
@@ -97,7 +116,6 @@ fetch_data <- function(dataset_name, return_X_y = FALSE, local_cache_dir = NA, d
 }
 
 
-
 #' pmlb: R interface to the Penn Machine Learning Benchmarks data repository
 #'
 #' The \href{https://github.com/EpistasisLab/pmlb}{PMLB} repository contains a curated collection of data sets for evaluating and
@@ -110,7 +128,7 @@ fetch_data <- function(dataset_name, return_X_y = FALSE, local_cache_dir = NA, d
 #' include any of the PMLB data sets.  The data sets can be downloaded using the \code{\link{fetch_data}} function which
 #' is similar to the corresponding PMLB python function.
 #'
-#' See \code{\link{fetch_data}}, \code{\link{summary_stats}} for usage examples and further information.
+#' See \code{\link{fetch_data}}, \code{\link{pmlb_metadata}} for usage examples and further information.
 #'
 #' If you use PMLB in a scientific publication, please consider citing the following paper:
 #'
