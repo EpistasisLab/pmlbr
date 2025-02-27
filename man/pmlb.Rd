@@ -17,7 +17,7 @@ This R library includes summaries of the classification and regression data sets
 include any of the PMLB data sets.  The data sets can be downloaded using the \code{\link{fetch_data}} function which
 is similar to the corresponding PMLB python function.
 
-See \code{\link{fetch_data}}, \code{\link{summary_stats}} for usage examples and further information.
+See \code{\link{fetch_data}}, \code{\link{pmlb_metadata}} for usage examples and further information.
 
 If you use PMLB in a scientific publication, please consider citing the following paper:
 

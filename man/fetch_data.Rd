@@ -40,5 +40,5 @@ if (interactive()){
 
 }
 \seealso{
-\code{\link{summary_stats}}.
+\code{\link{pmlb_metadata}}.
 }
